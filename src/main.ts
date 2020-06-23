@@ -15,6 +15,8 @@ function main(): void{
 
   const websocket: SocketIOClient.Socket = io(`${url}:${port}`, socketConnectOpts);
 
+  websocket.emit('login', userId);
+  websocket.on('connect', () => console.log(`Websocket Connection Id: ${websocket.id}\n`));
 }
 
 main();
