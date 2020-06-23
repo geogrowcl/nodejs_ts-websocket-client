@@ -1,4 +1,4 @@
-
+import io from "socket.io-client";
 
 
 function main(): void{
@@ -7,10 +7,14 @@ function main(): void{
   const port: number = parseInt(`${os['PORT'] || 3000 }`)
   const userId: string | undefined = os['USER_ID'];
   
+  const socketConnectOpts = {
+    forceNew: true,
+    reconnection: true,
+    secure: false
+  };
 
-  console.log("Hola Mundo");
+  const websocket: SocketIOClient.Socket = io(`${url}:${port}`, socketConnectOpts);
 
-  
 }
 
 main();
