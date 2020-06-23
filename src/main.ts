@@ -17,6 +17,7 @@ function main(): void{
 
   websocket.emit('login', userId);
   websocket.on('connect', () => console.log(`Websocket Connection Id: ${websocket.id}\n`));
+  websocket.on('sensor', (data: any) => console.log(data));
 }
 
 main();
